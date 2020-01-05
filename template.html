@@ -1,0 +1,25 @@
+  
+  <div class="row masonry infinite-container">
+    {% for object in numbers %}
+    <div class="masonry-item col-3 infinite-item">
+      <!--Content-->
+    </div>
+    {% endfor %}
+  </div>
+  
+  
+  <!-- Load more -->
+  {% if numbers.has_next %}
+  <a href="?page={{ numbers.next_page_number }}" class="btn">Loading...</a>
+  {% endif %}
+  <!-- end pagination -->
+  
+  <!-- Infinite Scroll -->
+  <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/infinite.min.js' %}"></script>
+  <script>
+  var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0]
+  });
+  </script>
